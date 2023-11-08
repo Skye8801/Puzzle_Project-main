@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class DragAndDrop2 : MonoBehaviour
 {
 
     public GameObject dragAndDrop;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +21,7 @@ public class DragAndDrop2 : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            RaycastHit hit = Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.zero);
             if (hit.transform.CompareTag("Puzzle"))
             {
                 if (hit.transform.GetComponent<SnapSystem>().InRightPosition)
@@ -40,5 +44,10 @@ public class DragAndDrop2 : MonoBehaviour
             Vector3 MousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dragAndDrop.transform.position = new Vector3(MousePoint.x, MousePoint.y, 0);
         }
+    }
+
+    private RaycastHit Raycast(Vector3 vector3, Vector3 zero)
+    {
+        throw new NotImplementedException();
     }
 }
