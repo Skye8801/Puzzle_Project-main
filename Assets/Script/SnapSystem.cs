@@ -34,7 +34,8 @@ public class SnapSystem : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        transform.position += new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        transform.position = ray.GetPoint(21.5f);
     }
 
 // Update is called once per frame
